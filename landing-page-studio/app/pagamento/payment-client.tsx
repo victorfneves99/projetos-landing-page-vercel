@@ -71,7 +71,7 @@ export function PaymentClient() {
     [selectedPlanId],
   )
 
-  const publicKey = process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY
+  const publicKey = process.env.MERCADOPAGO_PUBLIC_KEY
 
   useEffect(() => {
     let brickController: { unmount?: () => void } | null = null
@@ -79,7 +79,7 @@ export function PaymentClient() {
 
     const mountBrick = async () => {
       if (!publicKey) {
-        setErrorMessage('NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY nao configurada.')
+        setErrorMessage('MERCADOPAGO_PUBLIC_KEY nao configurada.')
         setIsBrickLoading(false)
         return
       }
