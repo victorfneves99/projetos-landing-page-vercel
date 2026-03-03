@@ -8,7 +8,7 @@ export default function PagamentoCanceladoPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="mx-auto max-w-3xl px-6 py-20 text-center md:px-12">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Stripe</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Mercado Pago</p>
         <h1 className="mt-4 font-serif text-4xl md:text-6xl">Pagamento cancelado</h1>
         <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
           O pagamento nao foi concluido. Se quiser, voce pode tentar novamente agora.

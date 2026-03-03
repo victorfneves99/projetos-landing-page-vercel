@@ -8,7 +8,7 @@ export default function PagamentoSucessoPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="mx-auto max-w-3xl px-6 py-20 text-center md:px-12">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">Stripe</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Mercado Pago</p>
         <h1 className="mt-4 font-serif text-4xl md:text-6xl">Pagamento confirmado</h1>
         <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
           Recebemos seu pagamento com sucesso. Em breve entraremos em contato para iniciar seu projeto.
