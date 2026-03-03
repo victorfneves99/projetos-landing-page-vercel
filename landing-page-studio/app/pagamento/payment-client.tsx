@@ -61,7 +61,11 @@ async function ensureMercadoPagoScript() {
   })
 }
 
-export function PaymentClient() {
+type PaymentClientProps = {
+  publicKey?: string
+}
+
+export function PaymentClient({ publicKey }: PaymentClientProps) {
   const [selectedPlanId, setSelectedPlanId] = useState<PlanId>('landing')
   const [isBrickLoading, setIsBrickLoading] = useState(true)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
@@ -70,8 +74,6 @@ export function PaymentClient() {
     () => PAYMENT_PLAN_LIST.find((plan) => plan.id === selectedPlanId) ?? PAYMENT_PLAN_LIST[0],
     [selectedPlanId],
   )
-
-  const publicKey = process.env.MERCADOPAGO_PUBLIC_KEY
 
   useEffect(() => {
     let brickController: { unmount?: () => void } | null = null

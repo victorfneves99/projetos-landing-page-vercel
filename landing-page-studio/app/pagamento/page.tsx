@@ -8,6 +8,8 @@ export const metadata = {
 }
 
 export default function PagamentoPage() {
+  const publicKey = process.env.MERCADOPAGO_PUBLIC_KEY
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
@@ -28,7 +30,7 @@ export default function PagamentoPage() {
           </Link>
         </div>
 
-        <PaymentClient />
+        <PaymentClient publicKey={publicKey} />
       </section>
     </main>
   )
