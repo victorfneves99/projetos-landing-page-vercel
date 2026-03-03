@@ -10,6 +10,7 @@ import { TestimonialsSection } from './sections/testimonials'
 export function LandingPage() {
   return (
     <main className="bg-background text-foreground font-sans">
+      <div id="top" />
       <Header />
       <HeroSection />
       <ServicesSection />
