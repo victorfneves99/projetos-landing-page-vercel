@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'DevStudio - Landing Pages, Sistemas e Websites',
+  title: 'PaPaco Desgin - Landing Pages, Sistemas e Websites',
   description: 'Criamos landing pages minimalistas, sistemas web e websites modernos para seu negócio crescer',
   generator: 'v0.app',
   icons: {
@@ -30,9 +31,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

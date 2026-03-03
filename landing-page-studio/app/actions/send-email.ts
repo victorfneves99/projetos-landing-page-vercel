@@ -11,7 +11,7 @@ export async function sendEmail(formData: FormData): Promise<void> {
 
   try {
     await resend.emails.send({
-      from: "Studio <onboarding@resend.dev>",
+      from: "PaPaco Desgin <onboarding@resend.dev>",
       to: "victorfneves99@gmail.com",
       subject: `Novo contato de ${name}`,
       replyTo: email,

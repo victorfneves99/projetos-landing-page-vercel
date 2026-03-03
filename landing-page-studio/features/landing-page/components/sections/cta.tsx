@@ -1,5 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
-import { sendEmail } from "@/app/actions/send-email";
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+import { sendEmail } from '@/app/actions/send-email'
 
 export function CtaSection() {
   return (
@@ -46,17 +47,26 @@ export function CtaSection() {
             </button>
           </form>
 
-          <a
-            href="https://wa.me/5531975058596"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-3 border border-border text-foreground text-xs tracking-widest uppercase px-8 py-4 hover:border-foreground transition-colors duration-200"
-          >
-            WhatsApp
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <a
+              href="https://wa.me/5531975058596"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 border border-border text-foreground text-xs tracking-widest uppercase px-8 py-4 hover:border-foreground transition-colors duration-200"
+            >
+              WhatsApp
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            <Link
+              href="/pagamento"
+              className="inline-flex items-center gap-3 border border-accent text-accent text-xs tracking-widest uppercase px-8 py-4 hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
+            >
+              Ir para pagamento
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -6,6 +6,7 @@ import { HeroSection } from './sections/hero'
 import { ProcessSection } from './sections/process'
 import { ServicesSection } from './sections/services'
 import { TestimonialsSection } from './sections/testimonials'
+import { ScrollToTop } from './scroll-to-top'
 
 export function LandingPage() {
   return (
@@ -19,6 +20,7 @@ export function LandingPage() {
       <ProcessSection />
       <CtaSection />
       <Footer />
+      <ScrollToTop />
     </main>
   )
 }
