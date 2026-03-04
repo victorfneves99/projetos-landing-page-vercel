@@ -237,6 +237,9 @@ export function PaymentClient({ publicKey }: PaymentClientProps) {
               Parcelamento nao disponivel para este valor. Escolha um valor maior para habilitar parcelas.
             </p>
           )}
+          <p className="mt-1 text-xs text-muted-foreground/80">
+            As opcoes de parcela aparecem apos informar um cartao de credito valido.
+          </p>
         </div>
 
         {isBrickLoading ? (
