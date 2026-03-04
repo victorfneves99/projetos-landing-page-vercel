@@ -3,7 +3,8 @@ import { randomUUID } from 'node:crypto'
 import { MercadoPagoConfig, Payment } from 'mercadopago'
 import { NextResponse } from 'next/server'
 
-import { PAYMENT_PLANS } from '@/lib/payments/plans'
+import { MAX_INSTALLMENTS, isValidInstallments } from '@/features/payment/domain/installments'
+import { PAYMENT_PLANS } from '@/features/payment/domain/plans'
 
 type PaymentBody = {
   planId?: keyof typeof PAYMENT_PLANS
@@ -46,6 +47,14 @@ export async function POST(request: Request) {
       )
     }
 
+    const installments = Number(body.installments)
+    if (!isValidInstallments(installments)) {
+      return NextResponse.json(
+        { error: `Parcelamento invalido. Escolha entre 1 e ${MAX_INSTALLMENTS}x.` },
+        { status: 400 },
+      )
+    }
+
     const plan = PAYMENT_PLANS[planId]
     const client = new MercadoPagoConfig({ accessToken })
     const payment = new Payment(client)
@@ -55,7 +64,7 @@ export async function POST(request: Request) {
         transaction_amount: plan.amountInCents / 100,
         token: body.token,
         description: plan.name,
-        installments: Number(body.installments),
+        installments,
         payment_method_id: body.payment_method_id,
         issuer_id: body.issuer_id ? Number(body.issuer_id) : undefined,
         payer: {

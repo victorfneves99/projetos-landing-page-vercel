@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
-import { createMercadoPagoPreference } from '@/lib/payments/mercadopago'
-import { PAYMENT_PLANS } from '@/lib/payments/plans'
+import { PAYMENT_PLANS } from '@/features/payment/domain/plans'
+import { createMercadoPagoPreference } from '@/features/payment/infrastructure/mercadopago/create-preference'
 
 type CheckoutBody = {
   planId?: keyof typeof PAYMENT_PLANS

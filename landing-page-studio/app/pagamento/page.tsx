@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { PaymentClient } from './payment-client'
+import { PaymentClient } from '@/features/payment/presentation/payment-client'
 
 export const metadata = {
   title: 'Pagamento | PaPaco Desgin',
