@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/shared/providers/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'PaPaco Desgin - Landing Pages, Sistemas e Websites',
+  title: 'PaPaco Design - Landing Pages, Sistemas e Websites',
   description: 'Criamos landing pages minimalistas, sistemas web e websites modernos para seu negócio crescer',
   generator: 'v0.app',
   icons: {

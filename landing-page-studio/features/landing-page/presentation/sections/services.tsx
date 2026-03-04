@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
 import { SERVICES } from '../../content/content'
@@ -34,14 +35,25 @@ export function ServicesSection() {
                 Solicitar <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
-            <div className="md:col-span-6 p-8 md:p-12 flex flex-col justify-between gap-8">
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{service.description}</p>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {service.tags.map((tag) => (
-                  <span key={tag} className="text-xs border border-border px-3 py-1 text-muted-foreground">
-                    {tag}
-                  </span>
-                ))}
+            <div className="md:col-span-6 p-8 md:p-12 grid gap-8 md:grid-cols-2 items-start">
+              <div className="space-y-6">
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{service.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {service.tags.map((tag) => (
+                    <span key={tag} className="text-xs border border-border px-3 py-1 text-muted-foreground">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="justify-self-start md:justify-self-end w-full max-w-[220px] rounded-xl border border-border bg-secondary/20 p-3">
+                <Image
+                  src={service.image}
+                  alt={service.imageAlt}
+                  width={220}
+                  height={220}
+                  className="h-auto w-full object-contain"
+                />
               </div>
             </div>
           </div>

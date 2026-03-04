@@ -7,10 +7,10 @@ export function Footer() {
     <footer className="max-w-7xl mx-auto px-6 md:px-12 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <span className="text-sm font-semibold tracking-[0.16em] uppercase">
         <span className="text-foreground">PaPaco</span>{' '}
-        <span className="text-accent">Desgin</span>
+        <span className="text-accent">Design</span>
       </span>
       <p className="text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} PaPaco Desgin. Todos os direitos reservados.
+        &copy; {new Date().getFullYear()} PaPaco Design. Todos os direitos reservados.
       </p>
       <div className="flex gap-6">
         {NAV_ITEMS.map((item) => (

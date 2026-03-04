@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Pagamento cancelado | PaPaco Desgin',
+  title: 'Pagamento cancelado | PaPaco Design',
 }
 
 export default function PagamentoCanceladoPage() {

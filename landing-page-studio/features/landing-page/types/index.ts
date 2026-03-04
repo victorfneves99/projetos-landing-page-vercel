@@ -13,6 +13,8 @@ export type ServiceItem = {
   title: string
   description: string
   tags: string[]
+  image: string
+  imageAlt: string
 }
 
 export type DifferentialItem = {

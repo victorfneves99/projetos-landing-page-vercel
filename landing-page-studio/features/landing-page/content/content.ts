@@ -26,6 +26,8 @@ export const SERVICES: ServiceItem[] = [
     description:
       'Páginas de alta conversão, projetadas para transformar visitantes em clientes. Cada elemento — do título ao botão — é posicionado com intenção para guiar o usuário à ação.',
     tags: ['Alta Conversão', 'SEO Técnico', 'Performance', 'A/B Ready'],
+    image: '/testimonials/camisa_papaco.png',
+    imageAlt: 'Camisa PaPaco',
   },
   {
     id: '002',
@@ -33,6 +35,8 @@ export const SERVICES: ServiceItem[] = [
     description:
       'Aplicações web sob medida para o seu fluxo de trabalho. Desde painéis internos a plataformas complexas — robustas, escaláveis e com experiência de uso impecável.',
     tags: ['Fullstack', 'Banco de Dados', 'APIs REST', 'Autenticação'],
+    image: '/testimonials/caneca_papaco.png',
+    imageAlt: 'Caneca PaPaco',
   },
   {
     id: '003',
@@ -40,6 +44,8 @@ export const SERVICES: ServiceItem[] = [
     description:
       'Sites corporativos e institucionais que comunicam autoridade e geram confiança. Sua marca representada com precisão, elegância e consistência visual em cada página.',
     tags: ['Branding', 'Responsivo', 'CMS', 'Multi-idioma'],
+    image: '/testimonials/caneca_inox_papaco.png',
+    imageAlt: 'Caneca inox PaPaco',
   },
 ]
 
