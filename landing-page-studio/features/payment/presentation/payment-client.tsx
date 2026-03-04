@@ -3,7 +3,7 @@
 import { Loader2 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 
-import { MAX_INSTALLMENTS } from '@/features/payment/domain/installments'
+import { getMaxInstallmentsForAmount } from '@/features/payment/domain/installments'
 import {
   PAYMENT_PLAN_LIST,
   type PaymentPlan,
@@ -79,6 +79,10 @@ export function PaymentClient({ publicKey }: PaymentClientProps) {
     () => PAYMENT_PLAN_LIST.find((plan) => plan.id === selectedPlanId) ?? PAYMENT_PLAN_LIST[0],
     [selectedPlanId],
   )
+  const maxInstallmentsForSelectedPlan = useMemo(
+    () => getMaxInstallmentsForAmount(selectedPlan.amountInCents),
+    [selectedPlan.amountInCents],
+  )
 
   useEffect(() => {
     let brickController: { unmount?: () => void } | null = null
@@ -112,7 +116,7 @@ export function PaymentClient({ publicKey }: PaymentClientProps) {
               },
             },
             paymentMethods: {
-              maxInstallments: MAX_INSTALLMENTS,
+              maxInstallments: maxInstallmentsForSelectedPlan,
             },
           },
           callbacks: {
@@ -179,7 +183,7 @@ export function PaymentClient({ publicKey }: PaymentClientProps) {
       cancelled = true
       brickController?.unmount?.()
     }
-  }, [publicKey, selectedPlan.id, selectedPlan.amountInCents])
+  }, [publicKey, selectedPlan.id, selectedPlan.amountInCents, maxInstallmentsForSelectedPlan])
 
   return (
     <div className="space-y-8">
@@ -224,9 +228,15 @@ export function PaymentClient({ publicKey }: PaymentClientProps) {
           <h2 className="mt-2 font-serif text-2xl md:text-3xl text-foreground">
             Pagamento com cartao - {selectedPlan.name}
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Voce pode pagar a vista ou em ate {MAX_INSTALLMENTS}x no cartao.
-          </p>
+          {maxInstallmentsForSelectedPlan > 1 ? (
+            <p className="mt-2 text-sm text-muted-foreground">
+              Voce pode pagar a vista ou em ate {maxInstallmentsForSelectedPlan}x no cartao.
+            </p>
+          ) : (
+            <p className="mt-2 text-sm text-muted-foreground">
+              Parcelamento nao disponivel para este valor. Escolha um valor maior para habilitar parcelas.
+            </p>
+          )}
         </div>
 
         {isBrickLoading ? (

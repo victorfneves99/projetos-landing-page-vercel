@@ -1,6 +1,6 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago'
 
-import { MAX_INSTALLMENTS } from '@/features/payment/domain/installments'
+import { getMaxInstallmentsForAmount } from '@/features/payment/domain/installments'
 import { PAYMENT_PLANS, type PlanId } from '@/features/payment/domain/plans'
 
 export async function createMercadoPagoPreference(options: {
@@ -19,6 +19,7 @@ export async function createMercadoPagoPreference(options: {
   const client = new MercadoPagoConfig({ accessToken })
   const preference = new Preference(client)
   const plan = PAYMENT_PLANS[options.planId]
+  const maxInstallments = getMaxInstallmentsForAmount(plan.amountInCents)
   const isLocalhost =
     options.origin.includes('localhost') || options.origin.includes('127.0.0.1')
 
@@ -42,7 +43,7 @@ export async function createMercadoPagoPreference(options: {
       // Em ambiente local o Mercado Pago pode rejeitar auto_return com back_urls localhost.
       ...(isLocalhost ? {} : { auto_return: 'approved' as const }),
       payment_methods: {
-        installments: MAX_INSTALLMENTS,
+        installments: maxInstallments,
         default_installments: 1,
       },
       external_reference: `plan_${plan.id}`,

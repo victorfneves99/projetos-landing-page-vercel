@@ -12,19 +12,19 @@ export const PAYMENT_PLANS: Record<PlanId, PaymentPlan> = {
     id: 'landing',
     name: 'Landing Page',
     description: 'Projeto focado em conversao com 1 pagina principal.',
-    amountInCents: 100,
+    amountInCents: 1000,
   },
   website: {
     id: 'website',
     name: 'Website Institucional',
     description: 'Site completo para apresentar sua empresa e servicos.',
-    amountInCents: 100,
+    amountInCents: 1000,
   },
   sistema: {
     id: 'sistema',
     name: 'Sistema Web',
     description: 'Aplicacao personalizada para processos internos e externos.',
-    amountInCents: 100,
+    amountInCents: 1000,
   },
 }
 
