@@ -5,11 +5,11 @@ import { HERO_STATS } from '../../content/content'
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex flex-col justify-end pt-14 border-b border-border">
+    <section className="min-h-screen flex flex-col justify-end pt-10 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-          <div className="md:col-span-12 border-t border-border pt-20 pb-6">
-            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-12">
+          <div className="md:col-span-12 border-t border-border pt-12 pb-6">
+            <p className="text-xs tracking-widest uppercase text-muted-foreground mb-8">
               Design & Desenvolvimento Web — 2025
             </p>
           </div>
