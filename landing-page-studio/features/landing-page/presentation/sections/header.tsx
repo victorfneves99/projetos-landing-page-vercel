@@ -10,7 +10,7 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <Link href="#top" className="flex items-center gap-3">
           <Image
-            src="/testimonials/papaco_03.png"
+            src="/testimonials/papaco_cabeca.png"
             alt="Logo PaPaco Design"
             width={48}
             height={48}
